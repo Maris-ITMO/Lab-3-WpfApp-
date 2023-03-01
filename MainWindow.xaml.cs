@@ -81,7 +81,7 @@ namespace Lab_3_WpfApp_САмРабота_Элементы_управления
                 textBox.Foreground = Brushes.Red;
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void OpenExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
@@ -89,9 +89,10 @@ namespace Lab_3_WpfApp_САмРабота_Элементы_управления
             {
                 textBox.Text = File.ReadAllText(openFileDialog.FileName);
             }
+
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        private void SaveExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
@@ -101,7 +102,7 @@ namespace Lab_3_WpfApp_САмРабота_Элементы_управления
             }
         }
 
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        private void CloseExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }

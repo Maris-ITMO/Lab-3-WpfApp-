@@ -4,8 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab_3_WpfApp_САмРабота_Элементы_управления"
-        mc:Ignorable="d"
+              mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="600">
+    <Window.CommandBindings>
+        <CommandBinding Command ="Open" Executed="OpenExecuted"/>
+        <CommandBinding Command ="Save" Executed="SaveExecuted"/>
+        <CommandBinding Command="Close" Executed="CloseExecuted"/>
+
+    </Window.CommandBindings>
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -14,10 +20,10 @@
         </Grid.RowDefinitions>
         <Menu Margin="5" Padding="5">
             <MenuItem Header="_Файл">
-                <MenuItem Header="_Открыть" Click="MenuItem_Click"/>
-                <MenuItem Header="_Сохранить" Click="MenuItem_Click_1"/>
+                <MenuItem Header="_Открыть" Command="ApplicationCommands.Open"/>
+                <MenuItem Header="_Сохранить" Command="ApplicationCommands.Save"/>
                 <Separator/>
-                <MenuItem Header="_Выход" Click="MenuItem_Click_2"/>
+                <MenuItem Header="_Выход" Command="ApplicationCommands.Close"/>
             </MenuItem>
             <MenuItem Header="_Правка"/>
             <MenuItem Header="_Справка"/>
