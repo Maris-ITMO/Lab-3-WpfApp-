@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Lab_3_WpfApp_САмРабота_Элементы_управления
+namespace Task1
 {
     /// <summary>
     /// Логика взаимодействия для App.xaml

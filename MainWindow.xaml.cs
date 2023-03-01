@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Lab_3_WpfApp_САмРабота_Элементы_управления
 {
     /// <summary>
@@ -24,7 +25,7 @@ namespace Lab_3_WpfApp_САмРабота_Элементы_управления
     {
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string fontName = ((sender as ComboBox).SelectedItem as TextBlock).Text;
+            string fontName = (sender as ComboBox).SelectedItem as string;
             if (textBox != null)
                 textBox.FontFamily = new FontFamily(fontName);
 
@@ -32,7 +33,7 @@ namespace Lab_3_WpfApp_САмРабота_Элементы_управления
 
         private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            string fontSize = ((sender as ComboBox).SelectedItem as TextBlock).Text;
+            string fontSize = (sender as ComboBox).SelectedItem as string;
             if (textBox != null)
                 textBox.FontSize = Convert.ToInt32(fontSize);
         }
@@ -89,7 +90,6 @@ namespace Lab_3_WpfApp_САмРабота_Элементы_управления
             {
                 textBox.Text = File.ReadAllText(openFileDialog.FileName);
             }
-
         }
 
         private void SaveExecuted(object sender, ExecutedRoutedEventArgs e)
@@ -102,9 +102,33 @@ namespace Lab_3_WpfApp_САмРабота_Элементы_управления
             }
         }
 
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Uri theme = new Uri("Light.xaml", UriKind.Relative);
+            ResourceDictionary themeDict = Application.LoadComponent(theme) as ResourceDictionary;
+            Application.Current.Resources.MergedDictionaries.Add(themeDict);
+        }
+
         private void CloseExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Uri theme = new Uri("Dark.xaml", UriKind.Relative);
+            ResourceDictionary themeDict = Application.LoadComponent(theme) as ResourceDictionary;
+            Application.Current.Resources.MergedDictionaries.Add(themeDict);
+        }
+
+        private void themes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Uri theme = new Uri(this.themes.SelectedIndex == 0 ? "Light.xaml" : "Dark.xaml", UriKind.Relative);
+            ResourceDictionary themeDict = Application.LoadComponent(theme) as ResourceDictionary;
+            Application.Current.Resources.MergedDictionaries.Add(themeDict);
         }
     }
 }
