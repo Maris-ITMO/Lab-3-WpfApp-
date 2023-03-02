@@ -26,60 +26,60 @@ namespace Lab_3_WpfApp_САмРабота_Элементы_управления
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string fontName = (sender as ComboBox).SelectedItem as string;
-            if (textBox != null)
-                textBox.FontFamily = new FontFamily(fontName);
+            if (TextBox1 != null)
+                TextBox1.FontFamily = new FontFamily(fontName);
 
         }
 
         private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             string fontSize = (sender as ComboBox).SelectedItem as string;
-            if (textBox != null)
-                textBox.FontSize = Convert.ToInt32(fontSize);
+            if (TextBox1 != null)
+                TextBox1.FontSize = Convert.ToInt32(fontSize);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (textBox.FontWeight == FontWeights.Normal)
+            if (TextBox1.FontWeight == FontWeights.Normal)
             {
-                textBox.FontWeight = FontWeights.Bold;
+                TextBox1.FontWeight = FontWeights.Bold;
             }
             else
             {
-                textBox.FontWeight = FontWeights.Normal;
+                TextBox1.FontWeight = FontWeights.Normal;
             }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (textBox.FontStyle == FontStyles.Normal)
+            if (TextBox1.FontStyle == FontStyles.Normal)
             {
-                textBox.FontStyle = FontStyles.Italic;
+                TextBox1.FontStyle = FontStyles.Italic;
             }
             else
             {
-                textBox.FontStyle = FontStyles.Normal;
+                TextBox1.FontStyle = FontStyles.Normal;
             }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if (textBox.TextDecorations != TextDecorations.Underline)
-                textBox.TextDecorations = TextDecorations.Underline;
+            if (TextBox1.TextDecorations != TextDecorations.Underline)
+                TextBox1.TextDecorations = TextDecorations.Underline;
             else
-                textBox.TextDecorations = null;
+                TextBox1.TextDecorations = null;
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            if (textBox != null)
-                textBox.Foreground = Brushes.Black;
+            if (TextBox1 != null)
+                TextBox1.Foreground = Brushes.Black;
         }
 
         private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
         {
-            if (textBox != null)
-                textBox.Foreground = Brushes.Red;
+            if (TextBox1 != null)
+                TextBox1.Foreground = Brushes.Red;
         }
 
         private void OpenExecuted(object sender, ExecutedRoutedEventArgs e)
@@ -88,7 +88,7 @@ namespace Lab_3_WpfApp_САмРабота_Элементы_управления
             openFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
             if (openFileDialog.ShowDialog() == true)
             {
-                textBox.Text = File.ReadAllText(openFileDialog.FileName);
+                TextBox1.Text = File.ReadAllText(openFileDialog.FileName);
             }
         }
 
@@ -98,7 +98,7 @@ namespace Lab_3_WpfApp_САмРабота_Элементы_управления
             saveFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
             if (saveFileDialog.ShowDialog() == true)
             {
-                File.WriteAllText(saveFileDialog.FileName, textBox.Text);
+                File.WriteAllText(saveFileDialog.FileName, TextBox1.Text);
             }
         }
 
